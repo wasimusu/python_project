@@ -10,8 +10,11 @@ def add(first_number: int, second_number: int) -> int:
     :param first_number, second_number: two numbers to be added
 
     :return: [int] sum of the two input numbers
+
+    :raise ValueError if the numbers are not integers
     """
-    try:
+    if isinstance(first_number, int) and isinstance(second_number, int):
         return first_number + second_number
-    except:
-        raise ValueError("Invalid error. Expected (int, int) got ({}, {})".format(type(first_number),type(second_number)))
+    else:
+        raise ValueError(
+            "Invalid error. Expected (int, int) got ({}, {})".format(type(first_number), type(second_number)))
