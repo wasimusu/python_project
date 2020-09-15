@@ -34,7 +34,6 @@ doxygen -g Doxyfile
 ```
 Now change some things in the Doxyfile that you have just generated.
 - PROJECT_NAME = "python_project"
-- GENERATE_HTML          = NO # (We don't need html output for readthedocs style docs)
 - GENERATE_LATEX         = NO
 ```
 doxygen Doxyfile
