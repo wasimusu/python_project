@@ -11,4 +11,7 @@ def split(string: str, delimiter: str = ' ') -> list:
     :param delimiter: input delimiter to split the user text
     :return: [list[str]] list of splitted strings
     """
-    return string.split(delimiter)
+    if isinstance(string, str) and isinstance(delimiter, str):
+        return string.split(delimiter)
+    raise ValueError(
+        "Expected (string, delimiter) of type (str, str) got ({}, {}). ".format(type(string), type(delimiter)))
