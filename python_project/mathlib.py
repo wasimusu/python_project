@@ -14,4 +14,4 @@ def add(first_number: int, second_number: int) -> int:
     try:
         return first_number + second_number
     except:
-        raise ValueError(f"Invalid error. Expected (int, int) got ({type(first_number)},{type(second_number)})")
+        raise ValueError("Invalid error. Expected (int, int) got ({}, {})".format(type(first_number),type(second_number)))

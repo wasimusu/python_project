@@ -10,8 +10,8 @@ class MathlibTest(unittest.TestCase):
         self.assertEqual(mathlib.add(0, 0), 0)
 
     def test_add_invalid_input(self):
-        self.assertRaises(mathlib.add(1, '1'), ValueError)
-        self.assertRaises(mathlib.add('1', '1'), ValueError)
-        self.assertRaises(mathlib.add([1], '1'), ValueError)
-        self.assertRaises(mathlib.add([1], 0), ValueError)
-        self.assertRaises(mathlib.add([1], [2]), ValueError)
+        self.assertRaises(ValueError, mathlib.add, 1, '1')
+        self.assertRaises(ValueError, mathlib.add, '1', '1')
+        self.assertRaises(ValueError, mathlib.add, [1], '1')
+        self.assertRaises(ValueError, mathlib.add, [1], 0)
+        self.assertRaises(ValueError, mathlib.add, [1], [2])
