@@ -2,11 +2,11 @@
 A template setup for a python project.
 
 It contains the following:
-* Setting up a python package
-* unittest for testing the project libraries
-* TravisCI for continuous integration
-* Documentation on readthedocs.org built using Sphinx, Doxygen and breathe.
-* Packaging the library for distribution on PyPi
+1. Setting up a python package
+2. unittest for testing the project libraries
+3. TravisCI for continuous integration
+4. Generating documentation locally and on readthedocs.org built using Sphinx and Doxygen
+5. Packaging the library for distribution on PyPi
 
 The template documentation for this project is on [readthedocs](https://python-project-setup.readthedocs.io/en/latest/).
 
@@ -27,7 +27,47 @@ git clone https://github.com/wasimusu/python_project.git
 * Linux (Xenial/Ubuntu 18.04)
 * Python 3.5, 3.7
 
-### Generating Documentation
+### 1. Setting up a python package
+python_project is the name of my project as well as the package. The overall structure of the project is as follows:
+
+```
+python_project
+    docs
+    python_project
+        __init.py__
+        mathlib.py
+        strlib.py
+    tests
+        test_mathlib.py
+        test_strlib.py
+    usage
+    .gitignore
+    .travis.yml
+    MANIFEST.in
+    readme.md
+    requirements.txt
+    setup.py
+```
+
+**Note:** The dirs docs and usage are not shown in expanded form.
+
+
+### 2. unittest for testing the project libraries
+```
+python -m unittest discover tests
+```
+
+### 3. TravisCI for continuous integration
+
+Basically all you need is an account on travis-ci.com and link your github account. Whenever you push a project containing
+.travis.yml file to github the TravisCI is triggered. It builds the projects, runs tests and/or benchmarks as defined in
+the .travis.yml file.
+
+Defining .travis.yml is simple. You only need to define what versions of Python you want to test and what platforms. You
+also need to provide instructions on how to run your code just like you'd explain on your github readme to potential users.
+
+
+### 4. Generating Documentation
 ```
 cd docs
 doxygen -g Doxyfile
@@ -38,7 +78,6 @@ Now change some things in the Doxyfile that you have just generated.
 ```
 doxygen Doxyfile
 sphinx-quickstart
-
 ```
 Then you'll get some prompts.
 ```
@@ -135,14 +174,6 @@ Discovers all the files named test*.py and runs all the unittest.
 python -m unittest discover tests
 ```
 
-### TravisCI (Continuous Integration)
-Basically all you need is an account on travis-ci.com and link your github account. Whenever you push a project containing
-.travis.yml file to github the TravisCI is triggered. It builds the projects, runs tests and/or benchmarks as defined in
-the .travis.yml file.
-
-Defining .travis.yml is simple. You only need to define what versions of Python you want to test and what platforms. You
-also need to provide instructions on how to run your code just like you'd explain on your github readme to potential users.
-
-### Packaging the python_project for distribution on pypi.org
+### 5. Packaging the python_project for distribution on pypi.org
 MANIFEST.in and setup.py are files that define the packaging. If you've followed the structure of this project, you're setup
 for distribution. Please refer to [this](https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56) to see the instructions to build your package and upload it to pypi.org.
