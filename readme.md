@@ -8,7 +8,7 @@ It contains the following:
 * Documentation on readthedocs.org built using Sphinx, Doxygen and breathe.
 * Packaging the library for distribution on PyPi
 
-The template documentation for this project is on [readthedocs](https://cpp-project-setup.readthedocs.io/en/latest/).
+The template documentation for this project is on [readthedocs](https://python-project-setup.readthedocs.io/en/latest/).
 
 ### Usage
 - Clone this project:
@@ -21,7 +21,7 @@ git clone https://github.com/wasimusu/python_project.git
 
 #### Build Status
 <img src="https://travis-ci.com/wasimusu/python_project.svg?branch=master" width="100">
-<img src="https://python-project-setup.readthedocs.io/en/latest/?badge=latest">
+<img src="https://readthedocs.org/projects/python-project-setup/badge/?version=latest">
 
 ### Platform
 * Linux (Xenial/Ubuntu 18.04)
