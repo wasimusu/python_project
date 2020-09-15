@@ -53,6 +53,7 @@ python_project
 
 
 ### 2. unittest for testing the project libraries
+Discovers all the files named test*.py and runs all the unittest.
 ```
 python -m unittest discover tests
 ```
@@ -167,12 +168,6 @@ To generate documentation on readthedocs.org, do the following:
 - Make an account on readthedocs.org if you have not already.
 - On readthedocs.org, select your project for generating documentation and build.
 
-
-### Run all tests
-Discovers all the files named test*.py and runs all the unittest.
-```
-python -m unittest discover tests
-```
 
 ### 5. Packaging the python_project for distribution on pypi.org
 MANIFEST.in and setup.py are files that define the packaging. If you've followed the structure of this project, you're setup
