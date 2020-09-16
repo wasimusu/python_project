@@ -3,7 +3,7 @@ A template setup for a python project.
 
 It contains the following:
 1. Setting up a python package
-2. tests for unittest and integration testing
+2. Tests for unittest and integration testing
 3. TravisCI for continuous integration
 4. Generating documentation locally and on readthedocs.org built using Sphinx and Doxygen
 5. Packaging the library for distribution on PyPi
@@ -82,12 +82,9 @@ also need to provide instructions on how to run your code just like you'd explai
 
 
 ### 4. Generating Documentation
-You can only go so far without a good documentation. When there are large project release
-they make sure that they have a great documentation. It helps to build a user base around their library.
-As a library developer you can avoid lots of frustration to users and lots of effort on your part trying to resolve user issues
-by having  a good documentation.
-
-Here's how to generate good looking documentation on localhost.
+You can only go so far without good documentation. Great library developers make sure that they have great documentation. It helps to build a user base around the library.
+As a library developer, you can avoid lots of frustration to users and lots of effort on your part trying to resolve user issues by having good documentation.
+Here's how to generate good looking documentation on the localhost.
 
 ```
 cd docs
@@ -121,15 +118,16 @@ your package so that its files are reachable from conf.py.
 Path of my conf.py: docs/source/conf.py
 
 Add these two statements so conf.py can access your package.
+
 ```
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../python_project'))
 ```
 
-Extension tell doc generator what kind of stuffs to document and what not.
-For instance, sphinx.ext.viewcode provides link to the code code. Add the following to conf.py
+'extension' tells doc generator what kind of stuff to document and what to ignore.
+For instance, 'sphinx.ext.viewcode' generates link to the source code. Add the following to conf.py
 
 ```
 # First two are essential to generate the docs, others are optional.
@@ -146,12 +144,8 @@ extensions = [
 
 We're done with the configuration. See the source code for [conf.py](docs/source/conf.py). I have done away with the boilerplate stuff and
 
-docs/source/index.rst file is like the readme for the documentation. The changes you make to this file
-is seen in your documentation. In this file you define which python source file to document and which not to.
-You can include installation instructions, features, usage code snippets, etc in this file.
-
-We built two libraries in this project: mathlib and strlib. We want both to be documented.
-So let's add that to the index.rst above "Indices and tables".
+docs/source/index.rst file is like the readme for the documentation. The changes you make to this file is seen in your generated documentation. In this file, you define which python source files to document. You can include installation instructions, features, usage code snippets, etc in this file.
+We built two libraries in this project: mathlib and strlib. We want both libs to be documented. So let's add that to the index.rst above "Indices and tables".
 
 ```
 Math Lib
