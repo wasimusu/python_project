@@ -192,7 +192,7 @@ To generate documentation on readthedocs.org, do the following:
 
 ### 5. Packaging the python_project for distribution on pypi.org
 MANIFEST.in and setup.py are files that define the packaging. If you've followed the structure of this project, you're setup
-for distribution. Please refer to [this](https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56) to see the instructions to build your package and upload it to pypi.org.
+for distribution.
 
 At this point, the project is ready to be published as a package on the pypi.org. Pypi.org functions like github with
 full version control of your packages and accompanying documentation. You'll need an account on it and save the credentials.
@@ -213,6 +213,8 @@ You will be prompted for your pypi.org credentials.version
 
 You can generate the package again after making some changes. You will need to increase the version
 number if you want to update your package in the pypi.org and upload it using twine.
+
+Please refer to [this](https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56) for more detailed instructions to build your package and upload it to pypi.org.
 
 Congratulations you now have a python distribution that is accessible to the world.version
 
