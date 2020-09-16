@@ -3,7 +3,7 @@ A template setup for a python project.
 
 It contains the following:
 1. Setting up a python package
-2. unittest for testing the project libraries
+2. tests for unittest and integration testing
 3. TravisCI for continuous integration
 4. Generating documentation locally and on readthedocs.org built using Sphinx and Doxygen
 5. Packaging the library for distribution on PyPi
@@ -51,14 +51,26 @@ python_project
 
 **Note:** The dirs docs and usage are not shown in expanded form.
 
+Description of some of the files included in the project:
+- .gitignore: to avoid git versioning certain types of files
+- .travis.yml: Travis CI
+- MANIFEST.in: control what is included in the project packaged for distribution
+- readme.md : description of the project
+- requirements: project dependencies
+- setup.py: for packaging and distribution
 
-### 2. unittest for testing the project libraries
+
+### 2. tests for unittest and integration testing
 Discovers all the files named test*.py and runs all the unittest.
-```
+ ```
 python -m unittest discover tests
 ```
 
 ### 3. TravisCI for continuous integration
+
+Why CI?
+- To do build and test everytime the changed are committed and pushed to a version control.
+- It lets other users know whether your project would build and run successfully on their platform.
 
 Basically all you need is an account on travis-ci.com and link your github account. Whenever you push a project containing
 .travis.yml file to github the TravisCI is triggered. It builds the projects, runs tests and/or benchmarks as defined in
@@ -69,18 +81,29 @@ also need to provide instructions on how to run your code just like you'd explai
 
 
 ### 4. Generating Documentation
+You can only go so far without a good documentation. When there are large project release
+they make sure that they have a great documentation. It helps to build a user base around their library.
+As a library developer you can avoid lots of frustration to users and lots of effort on your part trying to resolve user issues
+by having  a good documentation.
+
+Here's how to generate good looking documentation on localhost.
+
 ```
 cd docs
 doxygen -g Doxyfile
 ```
+
 Now change some things in the Doxyfile that you have just generated.
 - PROJECT_NAME = "python_project"
 - GENERATE_LATEX         = NO
+
 ```
 doxygen Doxyfile
 sphinx-quickstart
 ```
+
 Then you'll get some prompts.
+
 ```
 > Separate source and build directories (y/n) [n]: y
 > Project name: python_project
@@ -122,7 +145,6 @@ extensions = [
 
 We're done with the configuration. See the source code for [conf.py](docs/source/conf.py). I have done away with the boilerplate stuff and
 
-
 docs/source/index.rst file is like the readme for the documentation. The changes you make to this file
 is seen in your documentation. In this file you define which python source file to document and which not to.
 You can include installation instructions, features, usage code snippets, etc in this file.
@@ -151,8 +173,7 @@ make html
 We have now setup the documentation. Open the docs/build/html/index.html in your browser to view the documentation on localhost.
 
 **If you're not seeing your source files indexed/documented then it's probably path error. Make sure your source files are discoverable.**
-You can do this by testing different values for sys.path.insert()
-
+You can resolve this by adding appropriate paths using sys.path.insert() in the conf.py file.
 
 To re-generate documentation locally each time you change the documentation:
 ```
@@ -172,3 +193,27 @@ To generate documentation on readthedocs.org, do the following:
 ### 5. Packaging the python_project for distribution on pypi.org
 MANIFEST.in and setup.py are files that define the packaging. If you've followed the structure of this project, you're setup
 for distribution. Please refer to [this](https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56) to see the instructions to build your package and upload it to pypi.org.
+
+At this point, the project is ready to be published as a package on the pypi.org. Pypi.org functions like github with
+full version control of your packages and accompanying documentation. You'll need an account on it and save the credentials.
+Remember it's just like github.
+
+See [setup.py](setup.py) to see how to configure your own setup.py.
+
+```
+python setup.py sdist
+```
+This creates the package that will be uploaded on pypi.org. Twine makes it easy to upload it.
+
+```
+pip install twine
+twine upload dist/*
+```
+You will be prompted for your pypi.org credentials.version
+
+You can generate the package again after making some changes. You will need to increase the version
+number if you want to update your package in the pypi.org and upload it using twine.
+
+Congratulations you now have a python distribution that is accessible to the world.version
+
+Let's build something great!
