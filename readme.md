@@ -69,8 +69,9 @@ python -m unittest discover tests
 ### 3. TravisCI for continuous integration
 
 Why CI?
-- To do build and test everytime the changed are committed and pushed to a version control.
-- It lets other users know whether your project would build and run successfully on their platform.
+- To build and test everytime changes are committed and pushed to a version control system.
+- To let other users/contributors know whether your project would build and run successfully on their platform.
+- The green build badges look cool and comforting ;)
 
 Basically all you need is an account on travis-ci.com and link your github account. Whenever you push a project containing
 .travis.yml file to github the TravisCI is triggered. It builds the projects, runs tests and/or benchmarks as defined in
